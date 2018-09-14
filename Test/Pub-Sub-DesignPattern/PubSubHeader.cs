@@ -16,9 +16,9 @@ namespace Pub_Sub_DesignPattern
         {
             myServer.buffer.Enqueue(newMessage);
         }
-    }
+    };
 
-    
+
     class Subscriber
     {
         public Subscriber()
@@ -27,6 +27,7 @@ namespace Pub_Sub_DesignPattern
 
         public string[] topics = new string[2];
         public Queue<Message> myMessages = new Queue<Message>();
+
         public void Listen(string newTopic, int index)
         {
             topics[index] = newTopic;
@@ -36,11 +37,14 @@ namespace Pub_Sub_DesignPattern
         {
             for (int i = 0; i < topics.Length; i++)
             {
-                Message newMessage = myMessages.Dequeue();
-                Console.WriteLine("Topics: " + newMessage.topic + "\n" + newMessage.payload);
+                while (myMessages.Count != 0)
+                {
+                    Message newMessage = myMessages.Dequeue();
+                    Console.WriteLine("Topics: " + newMessage.topic + "\n" + newMessage.payload);
+                }
             }
         }
-    }
+    };
 
     class Message
     {
@@ -50,7 +54,7 @@ namespace Pub_Sub_DesignPattern
 
         public string payload;
         public string topic;
-    }
+    };
 
 
     class PubSubServer
@@ -79,5 +83,5 @@ namespace Pub_Sub_DesignPattern
                 }
             }
         }
-    }
+    };
 }

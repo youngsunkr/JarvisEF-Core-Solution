@@ -26,7 +26,7 @@ namespace Pub_Sub_DesignPattern
             dogMessage.payload = "Dogs are man's best friend";
 
             Message catMessage = new Message();
-            catMessage.topic = "Cat";
+            catMessage.topic = "Cats";
             catMessage.payload = "Cats can take care of themservice";
 
             dogPublisher.Send(dogMessage, Server);
@@ -42,13 +42,15 @@ namespace Pub_Sub_DesignPattern
 
             Server.Forword();
 
-            Console.WriteLine("AnimalLover has subscribed to the forwording message");
+            Console.WriteLine("AnimalLover has subscribed to the following message");
             AnimalLover.Print();
 
             Console.WriteLine("");
 
-            Console.WriteLine("OldCatLady has subscribed to the forwording message");
+            Console.WriteLine("OldCatLady has subscribed to the following message");
             OldCatLady.Print();
+
+            Console.ReadKey();
         }
     }
 }
