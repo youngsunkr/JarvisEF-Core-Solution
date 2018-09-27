@@ -7,11 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="bootstrap" Version="4.1.3" />
     <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.12.1" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.6" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.1916590" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.1985401" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
     <PackageReference Include="Unity" Version="5.8.11" />
     <PackageReference Include="Unity.Mvc" Version="5.0.15" />
   </ItemGroup>
@@ -21,6 +28,12 @@
     <ProjectReference Include="..\JarvisEF.Models\JarvisEF.Models.csproj" />
     <ProjectReference Include="..\JarvisEF.Repository\JarvisEF.Repository.csproj" />
     <ProjectReference Include="..\JarvisEF.Service\JarvisEF.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Board\Controllers\" />
+    <Folder Include="Areas\Board\Models\" />
+    <Folder Include="Areas\Board\Views\" />
   </ItemGroup>
 
 </Project>
