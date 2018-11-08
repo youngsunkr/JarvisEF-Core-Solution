@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -113,9 +113,9 @@ namespace JarvisEF.Repository.Infrastructure
             return (dbSet.Where(whereCondition).OrderBy(orderBy).Skip((pageNo - 1) * pageSize).Take(pageSize)).AsEnumerable();
         }
 
-        public IEnumerable<TEntity> ExecWithStoreProcedure(string query, params object[] parameters)
-        {
-            return dbSet.SqlQuery(query, parameters);
-        }
+        //public IEnumerable<TEntity> ExecWithStoreProcedure(string query, params object[] parameters)
+        //{
+        //    return dbSet.SqlQuery(query, parameters);
+        //}
     }
 }

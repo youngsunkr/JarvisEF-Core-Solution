@@ -5,14 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using JarvisEF.FrontUI.Models;
-using System.Web.Mvc;
 using Microsoft.AspNetCore.Http;
 
 namespace JarvisEF.FrontUI.Controllers
 {
     public class HomeController : BaseController
     {
-        [OutputCache(Duration = 0, VaryByParam = "*")]
+        //[OutputCache(Duration = 0, VaryByParam = "*")]
         public IActionResult Index()
         {
             // Drag & Drop 관련

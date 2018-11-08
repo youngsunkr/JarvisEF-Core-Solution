@@ -4,9 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 using Unity;
-using Unity.AspNet.Mvc;
 
 namespace JarvisEF.FrontUI.App_Start
 {
@@ -26,7 +24,7 @@ namespace JarvisEF.FrontUI.App_Start
 
             container.RegisterType<IEmployeeBusiness, EmployeeBusiness>();
 
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }

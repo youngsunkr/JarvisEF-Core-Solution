@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 using JarvisEF.FrontUI.App_Start;
+using JarvisEF.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +41,10 @@ namespace JarvisEF.FrontUI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
+            var apiService = new ApiClient(
+                new HttpClient(),
+                new Uri(Configuration["Api:Endpoint"]));
 
             services.AddDistributedMemoryCache();
 
