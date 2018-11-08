@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using JarvisEF.FrontUI.App_Start;
-using JarvisEF.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,22 +9,14 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Autofac;
 
-namespace JarvisEF.FrontUI
+namespace JarvisEF.AdminUI
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
-            //AreaRegistration.RegisterAllAreas();
-            UnityConfig.RegisterComponents();
-            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            //RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //AutomapperWebProfile.Run();
         }
 
         public IConfiguration Configuration { get; }
@@ -43,31 +32,7 @@ namespace JarvisEF.FrontUI
             });
 
 
-            var apiService = new ApiClient(
-                new HttpClient(),
-                new Uri(Configuration["Api:Endpoint"]));
-
-            services.AddDistributedMemoryCache();
-
-            services.AddSession(options =>
-            {
-                // Set a short timeout for easy testing.
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
-                options.Cookie.HttpOnly = true;
-            });
-
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            //// Create the container builder.
-            //var builder = new ContainerBuilder();
-            //builder.Populate(services);
-            //builder.RegisterType<Employee>().As<IEmployee>().InstancePerDependency();
-            //this.ApplicationContainer = builder.Build();
-
-            //// Create the IServiceProvider based on the container.
-            //return new AutofacServiceProvider(this.ApplicationContainer);
-            //// services.AddTransient<IEmployee, Employee>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,8 +51,6 @@ namespace JarvisEF.FrontUI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
-            app.UseSession();
 
             app.UseMvc(routes =>
             {

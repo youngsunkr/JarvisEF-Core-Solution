@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90.Web", "90.Web", "{1D1685
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pub-Sub-DesignPattern", "Test\Pub-Sub-DesignPattern\Pub-Sub-DesignPattern.csproj", "{3F1CEFAF-29C8-4D64-998D-B894A26F4EF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarvisEF.AdminUI", "JarvisEF.AdminUI\JarvisEF.AdminUI.csproj", "{F0C54CE8-531E-4F9F-AB76-6D65D90EF30F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{3F1CEFAF-29C8-4D64-998D-B894A26F4EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F1CEFAF-29C8-4D64-998D-B894A26F4EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F1CEFAF-29C8-4D64-998D-B894A26F4EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0C54CE8-531E-4F9F-AB76-6D65D90EF30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0C54CE8-531E-4F9F-AB76-6D65D90EF30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0C54CE8-531E-4F9F-AB76-6D65D90EF30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0C54CE8-531E-4F9F-AB76-6D65D90EF30F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{9C083352-A9C6-4B0E-A380-A09527FE4FAD} = {EBD70521-6941-46D6-9DE2-5F5BA1D43261}
 		{E7F3AE5A-AE66-47CE-AFD4-766B59C6DDA5} = {1D168562-B69F-46E3-964B-8AB7D9C09613}
 		{3F1CEFAF-29C8-4D64-998D-B894A26F4EF4} = {38DC3327-8D48-40B4-A334-9E96C79528A3}
+		{F0C54CE8-531E-4F9F-AB76-6D65D90EF30F} = {1D168562-B69F-46E3-964B-8AB7D9C09613}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0B771F1-E120-4547-9B42-A3FFD8E9DD59}
