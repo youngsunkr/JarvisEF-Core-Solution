@@ -62,7 +62,8 @@ namespace JarvisEF.WebAPI
                 TermsOfService = "None",    // 약관
                 Contact = new Contact { Name = "Noh Youngsun", Email = "youngsunkr@gmail.com", Url = "http://facebook.com/youngsunkr" },
                 Extensions = { },
-                License = new License { Name = "Use under LICX", Url = "http://url.com" }
+                //License = new License { Name = "Use under LICX", Url = "http://url.com" }
+                License = new License { Name = "Use under LICX", Url = "http://www.trusteer.com/en/support/end-user-license-agreement" }
 
 
             });
