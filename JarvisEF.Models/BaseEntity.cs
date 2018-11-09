@@ -10,5 +10,7 @@ namespace JarvisEF.Models
         public DateTime AddedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
         public string IPAddress { get; set; }
+
+        public bool IsSuccess { get; set; } = false;
     }
 }

@@ -6,14 +6,25 @@
     <UserSecretsId>1c2afafc-03b2-4005-aea8-b2816ecebf8e</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Work\source\repos\JarvisEF-Core-Solution\JarvisEF.WebAPI\JarvisEF.WebAPI.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.6" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.1916590" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JarvisEF.Core\JarvisEF.Core.csproj" />
+    <ProjectReference Include="..\JarvisEF.Models\JarvisEF.Models.csproj" />
   </ItemGroup>
 
 </Project>

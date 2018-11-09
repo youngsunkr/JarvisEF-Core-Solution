@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace JarvisEF.WebAPI
 {
@@ -26,7 +29,10 @@ namespace JarvisEF.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSwaggerGen(ConfigureSwaggerGen).AddMvc();
         }
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -42,6 +48,27 @@ namespace JarvisEF.WebAPI
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => ConfigureSwaggerUI(c));
         }
+
+        private static void ConfigureSwaggerGen(SwaggerGenOptions options)
+            => options.SwaggerDoc("api", new Info
+            {
+                Version = "α v0.1",
+                Title = "MyBaby APIs",
+                Description = "A simple example ASP.NET Core Web API",
+                TermsOfService = "None",    // 약관
+                Contact = new Contact { Name = "Noh Youngsun", Email = "youngsunkr@gmail.com", Url = "http://facebook.com/youngsunkr" },
+                Extensions = { },
+                License = new License { Name = "Use under LICX", Url = "http://url.com" }
+
+
+            });
+
+        private static void ConfigureSwaggerUI(SwaggerUIOptions options)
+            => options.SwaggerEndpoint("/swagger/api/swagger.json", "API");
+
     }
 }
