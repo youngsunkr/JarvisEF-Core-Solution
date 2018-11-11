@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section Scripts
+{
+    <script src="/scripts/nestable/jquery.nestable.min.js"></script>
+    <script type="text/javascript">
+        $('.dd').nestable();
+
+        $(".updateSort").click(function (e) {
+            var json = $('.dd').nestable('serialize');
+            var ids = $(json).map(function () {
+                return this.id;
+            }).get();
+            $.ajax({  
+                    type: 'PUT',
+                    url: '@Url.Action("UpdateOrder")',
+                    data: { ids: ids }
+                })
+                .done(function (result) {
+                    alert(result.success);
+                });
+        });
+    </script>
+    
+
+}
+
+@*<div class="dd shadowed">
+    <ol class="dd-list">
+        @foreach (var slide in lesson.Slides)
+        {
+            <li class="dd-item bordered-blue" data-id="@slide.Id" data-SortOrder="@slide.SortOrder">
+                <div class="dd-handle"> @slide.Name
+                </div>
+            </li>
+        }
+    </ol>
+</div>*@
+
+
+
