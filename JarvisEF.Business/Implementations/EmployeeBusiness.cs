@@ -3,7 +3,7 @@ using JarvisEF.Models;
 using System;
 using System.Collections.Generic;
 
-namespace JarvisEF.Business
+namespace JarvisEF.Business.Implementations
 {
     public class EmployeeBusiness : IEmployeeBusiness
     {
