@@ -41,4 +41,8 @@
     <Folder Include="Views\Shared\_Header\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\lib\Nestable2-master\.github\issue_template.md" />
+  </ItemGroup>
+
 </Project>

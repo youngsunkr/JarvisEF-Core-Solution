@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JarvisEF.Core", "JarvisEF.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp", "Test\FunctionApp\FunctionApp.csproj", "{A06BD3D0-9D1B-47B8-A332-51D1E3D7BF64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JarvisEF.edmx_dummy", "ETC\EDMX\JarvisEF.edmx_dummy\JarvisEF.edmx_dummy.csproj", "{4AE5E7FD-E502-4399-BA55-AD6CEF27FA44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{A06BD3D0-9D1B-47B8-A332-51D1E3D7BF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A06BD3D0-9D1B-47B8-A332-51D1E3D7BF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A06BD3D0-9D1B-47B8-A332-51D1E3D7BF64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE5E7FD-E502-4399-BA55-AD6CEF27FA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE5E7FD-E502-4399-BA55-AD6CEF27FA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE5E7FD-E502-4399-BA55-AD6CEF27FA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE5E7FD-E502-4399-BA55-AD6CEF27FA44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +104,7 @@ Global
 		{F0C54CE8-531E-4F9F-AB76-6D65D90EF30F} = {1D168562-B69F-46E3-964B-8AB7D9C09613}
 		{75C331BB-C036-4C2B-AE29-5361FC543ED5} = {99B9FD5B-4CE0-4FF4-AA25-9525171A1785}
 		{A06BD3D0-9D1B-47B8-A332-51D1E3D7BF64} = {38DC3327-8D48-40B4-A334-9E96C79528A3}
+		{4AE5E7FD-E502-4399-BA55-AD6CEF27FA44} = {89D802DB-AD76-4973-89E2-382F318CA4C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0B771F1-E120-4547-9B42-A3FFD8E9DD59}
