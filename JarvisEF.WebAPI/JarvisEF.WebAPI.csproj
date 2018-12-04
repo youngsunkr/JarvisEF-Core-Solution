@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JarvisEF.Core\JarvisEF.Core.csproj" />
+    <ProjectReference Include="..\JarvisEF.DotnetCore\JarvisEF.DotnetCore.csproj" />
     <ProjectReference Include="..\JarvisEF.Models\JarvisEF.Models.csproj" />
   </ItemGroup>
 

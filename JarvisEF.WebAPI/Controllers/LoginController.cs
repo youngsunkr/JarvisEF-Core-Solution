@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JarvisEF.Core.Security;
+using JarvisEF.DotnetCore.Security;
 using JarvisEF.Models.Login;
 using Microsoft.AspNetCore.Mvc;
 
