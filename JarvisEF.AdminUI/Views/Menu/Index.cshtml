@@ -1,12 +1,15 @@
 ﻿@model JarvisEF.Models.Pagination.IndexViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "웹 메뉴설정";
+
+    //Layout = Url.Content("~/Views/Shared/_MainLayout.cshtml");
+
 }
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/nestable2/1.5.0/jquery.nestable.min.css">
 <style type="text/css">
 
-   
+
 
     .small {
         color: #666;
@@ -31,7 +34,7 @@
         border-bottom: 2px solid #ddd;
     }
 
-    
+
     #nestable-output,
     #nestable2-output {
         width: 100%;
@@ -141,79 +144,78 @@
 
 @section Scripts
 {
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="~/js/jquery.nestable.min.js"></script>
-    <script type="text/javascript">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="~/js/jquery.nestable.min.js"></script>
+<script type="text/javascript">
 
-        nestable = {}
-        nestable.fn_itemAdd = function () {
-            alert('메뉴 Popup 띄워서 추가 할것')
-        }
+    nestable = {}
+    nestable.fn_itemAdd = function () {
+        alert('메뉴 Popup 띄워서 추가 할것')
+    }
 
-        $(function() {
+    $(function () {
 
-            var lastId = 12;
+        var lastId = 12;
 
-            $('#nestable-menu').on('click',
-                function(e) {
-                    var target = $(e.target),
-                        action = target.data('action');
-                    if (action === 'expand-all') {
-                        $('.dd').nestable('expandAll');
-                    }
-                    if (action === 'collapse-all') {
-                        $('.dd').nestable('collapseAll');
-                    }
-                    if (action === 'add-item') {
-                        nestable.fn_itemAdd();
+        $('#nestable-menu').on('click',
+            function (e) {
+                var target = $(e.target),
+                    action = target.data('action');
+                if (action === 'expand-all') {
+                    $('.dd').nestable('expandAll');
+                }
+                if (action === 'collapse-all') {
+                    $('.dd').nestable('collapseAll');
+                }
+                if (action === 'add-item') {
+                    nestable.fn_itemAdd();
 
-                        var newItem = {
-                            "id": ++lastId,
-                            "content": "Item " + lastId,
-                            "children": [
-                                {
-                                    "id": ++lastId,
-                                    "content": "Item " + lastId,
-                                    "children": [
-                                        {
-                                            "id": ++lastId,
-                                            "content": "Item " + lastId
-                                        }
-                                    ]
-                                }
-                            ]
-                        };
-                        $('#nestable3').nestable('add', newItem);
-                    }
-                    if (action === 'replace-item') {
-                        var replacedItem = {
-                            "id": 10,
-                            "content": "New item 10",
-                            "children": [
-                                {
-                                    "id": ++lastId,
-                                    "content": "Item " + lastId,
-                                    "children": [
-                                        {
-                                            "id": ++lastId,
-                                            "content": "Item " + lastId
-                                        }
-                                    ]
-                                }
-                            ]
-                        };
-                        $('#nestable3').nestable('replace', replacedItem);
-                    }
-                });
+                    var newItem = {
+                        "id": ++lastId,
+                        "content": "Item " + lastId,
+                        "children": [
+                            {
+                                "id": ++lastId,
+                                "content": "Item " + lastId,
+                                "children": [
+                                    {
+                                        "id": ++lastId,
+                                        "content": "Item " + lastId
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    $('#nestable3').nestable('add', newItem);
+                }
+                if (action === 'replace-item') {
+                    var replacedItem = {
+                        "id": 10,
+                        "content": "New item 10",
+                        "children": [
+                            {
+                                "id": ++lastId,
+                                "content": "Item " + lastId,
+                                "children": [
+                                    {
+                                        "id": ++lastId,
+                                        "content": "Item " + lastId
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    $('#nestable3').nestable('replace', replacedItem);
+                }
+            });
 
-            $('#nestable3').nestable().nestable('collapseAll');
+        $('#nestable3').nestable().nestable('collapseAll');
 
-        });
+    });
 
 
-        
-    </script>
 
+</script>
 }
 
 <menu id="nestable-menu">

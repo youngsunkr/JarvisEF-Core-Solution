@@ -1,12 +1,10 @@
 ﻿@{Layout = Url.Content("~/Views/Shared/_Layout.cshtml");}
 
-@section color{
-    <link href="@Url.Content("~/Common/css/edumanager_main.css")" type="text/css" rel="Stylesheet" />
-    <link href="@Url.Content("~/Common/css/edumanager_hcc.css")" type="text/css" rel="Stylesheet" />
-}
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
 <script src="~/js/common.js"></script>
+@RenderSection("Scripts", required: false)
 
-<div id="__layer__"></div>
+
 @RenderBody()
+
+
+

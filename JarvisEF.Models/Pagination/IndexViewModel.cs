@@ -6,6 +6,7 @@ namespace JarvisEF.Models.Pagination
 {
     /// <summary>
     /// http://jasonwatmore.com/post/2015/10/30/aspnet-mvc-pagination-example-with-logic-like-google
+    /// https://dotnetfiddle.net/eOe3tv
     /// </summary>
     public class IndexViewModel
     {
@@ -15,6 +16,7 @@ namespace JarvisEF.Models.Pagination
 
     /// <summary>
     /// http://jasonwatmore.com/post/2015/10/30/aspnet-mvc-pagination-example-with-logic-like-google
+    /// https://dotnetfiddle.net/eOe3tv
     /// </summary>
     public class Pager
     {

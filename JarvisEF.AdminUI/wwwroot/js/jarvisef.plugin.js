@@ -1,9 +1,9 @@
-﻿(function (hunet) {
-    var _hunet = hunet;
+﻿;(function ($) {
+    var _hunet = jarvisef;
     this.options = {
         callBack: null
     };
-    hunet.AWSTransCoding = function () {
+    jarvisef.AWSTransCoding = function () {
         var that = this;
 
         this.curSendCnt = 0;
@@ -11,9 +11,9 @@
         //this.SubmittedCount = [];
         //this.IsFileUpload = false;
 
-        hunet.AWSTransCoding.prototype.GetAuthorization.call();
+        jarvisef.AWSTransCoding.prototype.GetAuthorization.call();
     }
-    hunet.AWSTransCoding.prototype.GetAuthorization = function () {
+    jarvisef.AWSTransCoding.prototype.GetAuthorization = function () {
         var access_token = '';
 
         try {
@@ -22,7 +22,7 @@
 
             //console.log('호출전');
 
-            hunet.prototype.ajaxCall('', '/TourMaker/GetAuthorization', 'post', 'json', param, function (objJson) {
+            jarvisef.prototype.ajaxCall('', '/TourMaker/GetAuthorization', 'post', 'json', param, function (objJson) {
 
                 if (objJson.length > 0) {
                     //console.log(objJson.access_token);
@@ -56,22 +56,22 @@
 
 
     var result = null;
-    hunet.AWSTransCoding.prototype.SubmittedCount = [];
-    hunet.AWSTransCoding.prototype.IsFileUpload = false;
+    jarvisef.AWSTransCoding.prototype.SubmittedCount = [];
+    jarvisef.AWSTransCoding.prototype.IsFileUpload = false;
 
-    hunet.AWSTransCoding.prototype.SetUpload = function (asyncType, formData, requestSiteCode) {
+    jarvisef.AWSTransCoding.prototype.SetUpload = function (asyncType, formData, requestSiteCode) {
         var that = this;
 
         console.log(authorizationToken);
         var IsSuccess = false;
-        hunet.AWSTransCoding.prototype.IsFileUpload = false;
+        jarvisef.AWSTransCoding.prototype.IsFileUpload = false;
         
-        hunet.AWSTransCoding.prototype.SubmittedCount.push(requestSiteCode);
+        jarvisef.AWSTransCoding.prototype.SubmittedCount.push(requestSiteCode);
         //console.log(authorizationToken);
-        //console.log("추가된 배열 값 : " + hunet.AWSTransCoding.prototype.SubmittedCount.length);
+        //console.log("추가된 배열 값 : " + jarvisef.AWSTransCoding.prototype.SubmittedCount.length);
         
         //var param = "conversionSeq=" + result.requestSiteCode + "&successFlag=N&transcodingId=UI_UPLOAD_START&transcodingState=UI_UPLOAD_START";
-        //hunet.prototype.ajaxCall('', '/Common/TransCoding_UploadComplete', 'post', false, param, function (data) { });
+        //jarvisef.prototype.ajaxCall('', '/Common/TransCoding_UploadComplete', 'post', false, param, function (data) { });
 
         $.ajax({
             url: "https://api.prod.hunet.name/media/v1/transcoding",
@@ -105,45 +105,45 @@
                 /* 추후 배포(업로드중 창닫기 & 화면이동)
                      Contents.cshtml 페이지의 "beforeunload"이벤트도 주석 제거
                      */
-                //for (var i = 0; i < hunet.AWSTransCoding.prototype.SubmittedCount.length; i++) {
-                //    console.log("배열 삭제전 값 : " + hunet.AWSTransCoding.prototype.SubmittedCount[i]);
+                //for (var i = 0; i < jarvisef.AWSTransCoding.prototype.SubmittedCount.length; i++) {
+                //    console.log("배열 삭제전 값 : " + jarvisef.AWSTransCoding.prototype.SubmittedCount[i]);
                 //}
                 
-                hunet.AWSTransCoding.prototype.SubmittedCount.splice(
-                    hunet.AWSTransCoding.prototype.SubmittedCount.indexOf(result.requestSiteCode), 1);    //dog,cat,seal,lion,cat
+                jarvisef.AWSTransCoding.prototype.SubmittedCount.splice(
+                    jarvisef.AWSTransCoding.prototype.SubmittedCount.indexOf(result.requestSiteCode), 1);    //dog,cat,seal,lion,cat
                 
-                //console.log("배열카운트 : " + hunet.AWSTransCoding.prototype.SubmittedCount.length);
-                //for (var i = 0; i < hunet.AWSTransCoding.prototype.SubmittedCount.length; i++) {
-                //    console.log("배열카운트 값 : " + hunet.AWSTransCoding.prototype.SubmittedCount[i]);
+                //console.log("배열카운트 : " + jarvisef.AWSTransCoding.prototype.SubmittedCount.length);
+                //for (var i = 0; i < jarvisef.AWSTransCoding.prototype.SubmittedCount.length; i++) {
+                //    console.log("배열카운트 값 : " + jarvisef.AWSTransCoding.prototype.SubmittedCount[i]);
                 //}
 
 
                 // 업로드 성공시 성공 로그 저장
 
                 var param = "conversionSeq=" + result.requestSiteCode + "&successFlag=Y&transcodingId=" + result.transcodingId + "&transcodingState=" + result.transcodingState;
-                hunet.prototype.ajaxCall('', '/Common/TransCoding_UploadComplete', 'post', false, param, function (data) {
+                jarvisef.prototype.ajaxCall('', '/Common/TransCoding_UploadComplete', 'post', false, param, function (data) {
 
-                    //Submitted = $.grep(hunet.AWSTransCoding.prototype.SubmittedCount, function (element, index) {
+                    //Submitted = $.grep(jarvisef.AWSTransCoding.prototype.SubmittedCount, function (element, index) {
                     //    console.log("검색값: " + result.requestSiteCode);
-                    //    if ($.inArray(result.requestSiteCode, hunet.AWSTransCoding.prototype.SubmittedCount) > -1) {
-                    //        hunet.AWSTransCoding.prototype.SubmittedCount.splice(hunet.AWSTransCoding.prototype.SubmittedCount.indexOf(index), 1);
+                    //    if ($.inArray(result.requestSiteCode, jarvisef.AWSTransCoding.prototype.SubmittedCount) > -1) {
+                    //        jarvisef.AWSTransCoding.prototype.SubmittedCount.splice(jarvisef.AWSTransCoding.prototype.SubmittedCount.indexOf(index), 1);
                     //            //return true;
                     //    }
                     //});
 
-                    //Submitted = $.grep(hunet.AWSTransCoding.prototype.SubmittedCount, function (element, index) {
+                    //Submitted = $.grep(jarvisef.AWSTransCoding.prototype.SubmittedCount, function (element, index) {
                     //   return arrRequestSiteCode.splice(result.requestSiteCode) != -1;
                     //);
 
-                    //Submitted = $.grep(hunet.AWSTransCoding.prototype.SubmittedCount, function (value) {
-                    //    //console.log("배열 삭제전 값" + hunet.AWSTransCoding.prototype.SubmittedCount);
+                    //Submitted = $.grep(jarvisef.AWSTransCoding.prototype.SubmittedCount, function (value) {
+                    //    //console.log("배열 삭제전 값" + jarvisef.AWSTransCoding.prototype.SubmittedCount);
                     //    return value != result.requestSiteCode;
                     //});
 
                     
                 });
 
-                hunet.AWSTransCoding.prototype.IsFileUpload = true;
+                jarvisef.AWSTransCoding.prototype.IsFileUpload = true;
                 IsSuccess = true;
 
                 return IsSuccess;
@@ -156,11 +156,11 @@
                 //console.log(error);
                 //console.log(status);
 
-                //alert(hunet.AWSTransCoding.prototype.SubmittedCount.length);
+                //alert(jarvisef.AWSTransCoding.prototype.SubmittedCount.length);
                 
                 
                 var param = "conversionSeq=" + requestSiteCode + "&successFlag=N&transcodingId=UPLOAD_FAIL&transcodingState=ERROR";
-                hunet.prototype.ajaxCall('',
+                jarvisef.prototype.ajaxCall('',
                     '/Common/TransCoding_UploadComplete',
                     'post',
                     false,
@@ -170,18 +170,18 @@
                 // 운영시에는 오류 메시지를 사용자 친화적으로 변경 하여 출력할것
                 alert("동영상 업로드에 실패 하였습니다.");
 
-                hunet.AWSTransCoding.prototype.SubmittedCount.splice(
-                    hunet.AWSTransCoding.prototype.SubmittedCount.indexOf(requestSiteCode), 1);    //dog,cat,seal,lion,cat
+                jarvisef.AWSTransCoding.prototype.SubmittedCount.splice(
+                    jarvisef.AWSTransCoding.prototype.SubmittedCount.indexOf(requestSiteCode), 1);    //dog,cat,seal,lion,cat
 
-                //alert(hunet.AWSTransCoding.prototype.SubmittedCount.length);
+                //alert(jarvisef.AWSTransCoding.prototype.SubmittedCount.length);
 
-                console.log("배열카운트" + hunet.AWSTransCoding.prototype.SubmittedCount.length);
-                for (var i = 0; i < hunet.AWSTransCoding.prototype.SubmittedCount.length; i++) {
-                    console.log("배열카운트 값" + hunet.AWSTransCoding.prototype.SubmittedCount[i]);
+                console.log("배열카운트" + jarvisef.AWSTransCoding.prototype.SubmittedCount.length);
+                for (var i = 0; i < jarvisef.AWSTransCoding.prototype.SubmittedCount.length; i++) {
+                    console.log("배열카운트 값" + jarvisef.AWSTransCoding.prototype.SubmittedCount[i]);
                 }
 
 
-                hunet.AWSTransCoding.prototype.IsFileUpload = false;
+                jarvisef.AWSTransCoding.prototype.IsFileUpload = false;
                 IsSuccess = false;
 
                 return IsSuccess;
@@ -190,7 +190,7 @@
         });
     }
 
-    hunet.AWSTransCoding.prototype.ajaxCall = function (obj, url, type, asyncType, cache, dataType, data, callBack) {
+    jarvisef.AWSTransCoding.prototype.ajaxCall = function (obj, url, type, asyncType, cache, dataType, data, callBack) {
         
         var that = this;
 
@@ -212,7 +212,7 @@
             beforeSend: function () {
                 if (obj != null && typeof (obj) == "object") {
 
-                    if (Hunet.prototype.customIndicator(obj))
+                    if (jarvisef.prototype.customIndicator(obj))
                         return;
 
                     if (obj.attr('id') == "__loading__")
@@ -221,7 +221,7 @@
                         obj.html("<div style='width:100%; text-align:center; height:100%; vertical-align:middle;'><img src='/common/indicator/loading.gif' /></div>");
                 }
                 else if (obj && (obj == "__loading_layout_show__" || obj == "__loading_layout_show_hide__")) {
-                    hunet.showLoadingLayout();
+                    jarvisef.showLoadingLayout();
                 }
             },
             success: function (result) {
@@ -237,7 +237,7 @@
                     }
                 }
                 else if (obj && obj == "__loading_layout_show_hide__") {
-                    hunet.hideLoadingLayout();
+                    jarvisef.hideLoadingLayout();
                 }
 
                 if (typeof (data) == 'string'
@@ -267,7 +267,7 @@
                         }
                     }
                 }
-                //hunet.resizeLeftMenu(); //왼쪽 메뉴 리사이즈   
+                //jarvisef.resizeLeftMenu(); //왼쪽 메뉴 리사이즈   
             },
             error: function (jqXHR, status, errorThrown) {
 
@@ -285,7 +285,7 @@
                     }
                 }
                 else if (obj && (obj == "__loading_layout_show__" || obj == "__loading_layout_show_hide__")) {
-                    hunet.hideLoadingLayout();
+                    jarvisef.hideLoadingLayout();
                 }
 
                 if (status == "abort") return;
@@ -317,11 +317,11 @@
         });
     }
 
-    hunet.AWSTransCoding.prototype.GetExtension = function(filename) {
+    jarvisef.AWSTransCoding.prototype.GetExtension = function(filename) {
         var parts = filename.split('.');
         return parts[parts.length - 1];
     };
-    hunet.AWSTransCoding.prototype.IsVideo = function(filename) {
+    jarvisef.AWSTransCoding.prototype.IsVideo = function(filename) {
         var ext = this.GetExtension(filename);
         switch (ext.toLowerCase()) {
         case "avi":
@@ -340,4 +340,4 @@
     };
 
 
-})(Hunet);
+})(jQuery);

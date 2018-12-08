@@ -10,10 +10,10 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
     </environment>
 </head>
 <body>
@@ -69,6 +69,61 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
+    <script src="~/js/common.js"></script>
+
     @RenderSection("Scripts", required: false)
+
+
+
+    <div id="__layer__"></div>
+    <div id="divCommonLayer" class="layer_alert" style="width: 350px; display: none;">
+        <div class="alert">
+            <p>
+                입력하신 특수 문자는 검색하실<br />
+                수 없습니다.
+            </p>
+            <div class="btn_m">
+                <img id="btnCLOk" onclick="" src="/Images/Common/Buttons/btn_submit_off.gif" class="btn_on"
+                     alt="확인" style="cursor: pointer; display: none;" />
+                <img id="btnCLCancel" src="/Images/Common/Buttons/btn_cancel_off.gif" class="btn_on"
+                     alt="취소" style="cursor: pointer; display: none;" />
+            </div>
+        </div>
+    </div>
+    <!-- //Common Layer -->
+    <!--Common Print Popup -->
+    <div id="divCommonPrint" class="layer_popup" style="width: 890px; display: none;">
+        <div class="mainpopup_lt">
+            <div class="mainpopup_rt">
+                <div class="mainpopup_lb">
+                    <div class="mainpopup_rb">
+                        <!-- pop contents -->
+                        <iframe id="ctl00_ifPrint" title="인쇄내용출력" frameborder="0" width="800px" height="400px" style="filter: alpha(opacity=0); position: absolute; z-index: 99;"></iframe>
+                        <div class="content print_area" id="divCommonPrintCntt" style="background-color: Transparent">
+                            <!-- print contents area -->
+                            인쇄내용 출력
+                            <!-- //print contents area -->
+                        </div>
+                        <!-- //pop contents -->
+                        <!-- button -->
+                        <div class="btn_type02">
+                            <a href="javascript:fn_Print();">
+                                <img src="/Images/Common/Buttons/btn_print_off.gif" class="btn_on" alt="인쇄하기" />
+                            </a>
+                        </div>
+                        <!-- //button -->
+                        <div class="close_btn">
+                            <a href="javascript:fn_HideDivCommonPrint();">
+                                <img src="/Images/Common/Popup/btn_close.gif" alt="close" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //Common Print Popup -->
+
+
 </body>
 </html>
