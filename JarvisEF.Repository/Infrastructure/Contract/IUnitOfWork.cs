@@ -18,5 +18,9 @@ namespace JarvisEF.Repository.Infrastructure
         DbContext Db { get; }
 
         int Complete();
+
+
+
+        IMemberRepository Member { get; }
     }
 }

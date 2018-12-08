@@ -20,7 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JarvisEF.Business\JarvisEF.Business.csproj" />
+    <ProjectReference Include="..\JarvisEF.DotnetCore\JarvisEF.DotnetCore.csproj" />
     <ProjectReference Include="..\JarvisEF.Models\JarvisEF.Models.csproj" />
+    <ProjectReference Include="..\JarvisEF.Repository\JarvisEF.Repository.csproj" />
+    <ProjectReference Include="..\JarvisEF.WebAPI\JarvisEF.WebAPI.csproj" />
   </ItemGroup>
 
   <ItemGroup>

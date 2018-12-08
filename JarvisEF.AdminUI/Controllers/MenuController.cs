@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using JarvisEF.Models.Pagination;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JarvisEF.AdminUI.Controllers
 {
-    public class MenuController : Controller
+    public class MenuController : BaseController
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(int? page)
         {
-            return View();
+            var dummyItems = Enumerable.Range(1, 150).Select(x => "Item " + x);
+            var pager = new Pager(dummyItems.Count(), page);
+
+            var viewModel = new IndexViewModel
+            {
+                Items = dummyItems.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize),
+                Pager = pager
+            };
+
+            return View(viewModel);
         }
 
 

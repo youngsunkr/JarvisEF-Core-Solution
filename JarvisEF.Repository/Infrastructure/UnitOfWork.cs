@@ -13,10 +13,14 @@ namespace JarvisEF.Repository.Infrastructure
     public class UnitOfWork : IUnitOfWork
     {
         private readonly MVCTutorialEntitiesContainer _dbContext;
+        private readonly PlutoContext _context;
 
-        public UnitOfWork()
+        public UnitOfWork(PlutoContext context)
         {
+            _context = context;
             _dbContext = new MVCTutorialEntitiesContainer();
+
+            Member = new MemberRepository(_context);
         }
 
         public DbContext Db
@@ -29,6 +33,12 @@ namespace JarvisEF.Repository.Infrastructure
             return _dbContext.SaveChanges();
         }
 
+        public IMemberRepository Member { get; private set; }
+
+
+
+
+        #region IDisposable Interface Impl
         private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)
@@ -47,6 +57,7 @@ namespace JarvisEF.Repository.Infrastructure
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
+        } 
+        #endregion
     }
 }

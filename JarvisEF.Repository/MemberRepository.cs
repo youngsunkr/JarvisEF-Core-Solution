@@ -8,56 +8,28 @@ using JarvisEF.Repository.Infrastructure;
 
 namespace JarvisEF.Repository
 {
-    public class MemberRepository : IBaseRepository<Member>, IMemberRepository
+    public class MemberRepository : Repository<Member>, IMemberRepository
     {
-        public Task Delete(int id)
+        public MemberRepository(PlutoContext context)
+            : base(context)
+        {
+        }
+
+
+        public PlutoContext PlutoContext
+        {
+            get { return Context as PlutoContext;}
+        }
+
+        public Task<TEntity> Delete<TEntity>(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Expression<Func<Member, bool>> whereCondition)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Exists(Expression<Func<Member, bool>> whereCondition)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Member> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Member> GetAll(Expression<Func<Member, bool>> whereCondition)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Member Insert(Member entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Member SingleOrDefault(Expression<Func<Member, bool>> whereCondition)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Member entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateAll(IList<Member> entities)
+        public new Task<TEntity> Get<TEntity>(int id)
         {
             throw new NotImplementedException();
         }
     }
+
 }

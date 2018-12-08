@@ -7,14 +7,9 @@ using JarvisEF.Repository;
 using JarvisEF.Repository.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
-namespace JarvisEF.WebAPI.Controllers
+namespace JarvisEF.AdminUI.Controllers
 {
-    /// <summary>
-    /// https://www.strathweb.com/2018/06/controllers-as-action-filters-in-asp-net-core-mvc/
-    /// </summary>
-    [Route("[controller]")]
-    [ApiController]
-    public class MemberController : ControllerBase
+    public class MemberController : BaseController
     {
         private readonly IMemberRepository _repository;
 
@@ -23,7 +18,10 @@ namespace JarvisEF.WebAPI.Controllers
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         //[HttpGet("{id}", Name = "GetContactById")]
         public async Task<ActionResult<Member>> Get(int id)
@@ -47,17 +45,20 @@ namespace JarvisEF.WebAPI.Controllers
             //return Ok(contact);
         }
 
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    var deleted = await _repository.Get(id);
-        //    if (deleted == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            using (var unitOfWork = new UnitOfWork(new PlutoContext()))
+            {
+                var deleted = await unitOfWork.Member.Get<Member>(id);
+                if (deleted == null)
+                {
+                    return NotFound();
+                }
 
-        //    await _repository.Delete(id);
-        //    return NoContent();
-        //}
+                await unitOfWork.Member.Delete<Member>(id);
+                return NoContent();
+            }
+        }
     }
 }
